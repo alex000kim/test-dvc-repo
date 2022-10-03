@@ -1,0 +1,12 @@
+stages:
+  train_model:
+    cmd: echo this is my model > my_model
+    outs:
+    - my_model
+  eval_model:
+    cmd: 'echo "Accuracy": 0.8 > metrics.txt'
+    deps: 
+    - my_model
+    metrics:
+    - metrics.txt:
+        cache: false

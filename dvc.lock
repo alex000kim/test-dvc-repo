@@ -1,0 +1,24 @@
+schema: '2.0'
+stages:
+  test_stage:
+    cmd: echo this is my model > my_model
+    outs:
+    - path: my_model
+      md5: 17dbebad0988d3667d11711f695b9966
+      size: 17
+  train_model:
+    cmd: echo this is my model > my_model
+    outs:
+    - path: my_model
+      md5: 17dbebad0988d3667d11711f695b9966
+      size: 17
+  eval_model:
+    cmd: 'echo "Accuracy": 0.8 > metrics.txt'
+    deps:
+    - path: my_model
+      md5: 17dbebad0988d3667d11711f695b9966
+      size: 17
+    outs:
+    - path: metrics.txt
+      md5: 1277444de53814fd515a1c8375ded58e
+      size: 14
